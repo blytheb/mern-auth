@@ -4,9 +4,8 @@ const test = (req, res) => {
     res.json('test is working')
 }
 
-//trycatchblock
 const registerUser = async (req, res) => {
-    try{
+    try {
         const {name, email, password} = req.body;
         //check if name was entered
         if (!name){
@@ -17,7 +16,7 @@ const registerUser = async (req, res) => {
         //check if password is good
         if (!password || password.length < 6){
             return res.json({
-                error: "Password is required and should be at lesat "
+                error: "Password is required and should be at least 6 char long "
             })
         }
         //check email
@@ -32,7 +31,7 @@ const registerUser = async (req, res) => {
         })
         return res.json(user)
     } catch(err) {
-        console.log(error)
+        console.log(err)
     }
 }
 
